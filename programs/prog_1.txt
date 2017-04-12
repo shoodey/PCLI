@@ -1,0 +1,39 @@
+# Average of elements of an array
+# -------------------------------
+
+# Text following # symbols is ignored by the interpreter.
+# Line breaks are ignored as well.
+# Spacing between operands is for styling purposes only.
+
+VAR CONS 001            # line 01 -  loc 00    Constant 0
++0  000  000  000       # line 02 -  Initialized with value 0
+VAR IDX  001            # line 03 -  loc 01    Index value
+VAR SUM  001            # line 04 -  loc 02    Sum of array
+VAR AVG  001            # line 05 -  loc 03    Average of array
+VAR ELT  001            # line 06 -  loc 04    Number of elements
+VAR TMP  001            # line 07 -  loc 05    Temporary variable
+VAR ARR  010            # line 08 -  loc 06    Array of 10 element
++0  000  000  000       # line 09 -  Initialized with value 0
+
+START                   # line 10 -  Start of program
+
+INP 000  000  ELT       # line 11 -  loc 00    Read in number of elements in ARR
+LBL LOC1                # line 12 -  loc 01
+INP 000  000  TMP       # line 13 -  loc 02    Read data into TMP
+GEQ TMP  CONS LOC2      # line 14 -  loc 03    If positive, go to LOC2 (06)
+SUB CONS TMP  TMP       # line 15 -  loc 04    Else, negate it to get absolute value
+LBL LOC2                # line 16 -  loc 05
+ARW TMP  ARR  IDX       # line 17 -  loc 06    Write TMP into ARR[IDX]
+ITJ IDX  ELT LOC1       # line 18 -  loc 07    Increment IDX, compare with ELT, go to LOC1 (02)
+ASG CONS 000  IDX       # line 19 -  loc 08    Reinitialize IDX to 0
+LBL LOC3                # line 20 -  loc 09
+ARR ARR  IDX  TMP       # line 21 -  loc 10    Put value of ARR[IDX] into TMP
+ADD TMP  SUM  SUM       # line 22 -  loc 11    SUM += TMP
+ITJ IDX  ELT  LOC3      # line 23 -  loc 12    Increment IDX, compare with ELT, loop to LOC7 (
+DIV SUM  ELT  AVG       # line 24 -  loc 13    AVG = SUM/ELT
+OUT AVG  000  000       # line 25 -  loc 14    Print AVG
+STP 000  000  000       # line 26 -  loc 15    Stop program
+
+END                     # line 27 -  End of program
+
++0  000  000  010       # line 28 -  Number of input values: 10
