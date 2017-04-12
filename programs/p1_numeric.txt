@@ -1,0 +1,23 @@
++0 000 000 000 # (loc 0)      constant 0
++0 000 000 000 # (loc 1)      index
++0 000 000 000 # (loc 2)      sum of array
++0 000 000 000 # (loc 3)      average of array
++0 000 000 000 # (loc 4)      n = number of elements in array
++0 000 000 000 # (loc 5)      temp variable
++0 000 000 000 # (loc 6-999)  the array starts in location 6
++9 999 999 999 #              end of initial data; start of program
++8 000 000 004 # (loc 0)      read in # of elements in array
++8 000 000 005 # (loc 1)      read data into temp
++5 005 000 004 # (loc 2)      if positive, skip to loc 004
+-1 000 005 005 # (loc 3)      else negate it (to get absolute value)
+-6 005 006 001 # (loc 4)      move temp into array at subscript i
++7 001 004 001 # (loc 5)      increment i, test with n, loop to location 1
++0 000 000 001 # (loc 6)      reinitialize i to 0
++6 006 001 005 # (loc 7)      add array sub i
++1 005 002 002 # (loc 8)         to sum
++7 001 004 007 # (loc 9)      increment i, test with n, loop to location 7
+-2 002 004 003 # (loc 10)     sum / n store in average
+-8 003 000 000 # (loc 11)     print average
++9 000 000 000 # (loc 12)     stop
++9 999 999 999 #              end of program; start of input data
++0 000 000 010 #              number of input values (here 10)
